@@ -3,7 +3,7 @@
 #include<conio.c>
 #include <time.h>
 
-int tecla, p=1;
+int tecla, p=1, posicao=0, d;
 bool sair = false;
 //-------------------------------------------------------------------
 void bordas(int ci,int li, int cf, int lf, int cor) {
@@ -43,17 +43,17 @@ void menu() {
         textbackground(15);
         
         switch (p){
-            case 1:gotoxy(10,10); printf(" JOGAR "); break;     
-            case 2:gotoxy(10,11); printf(" REGRAS "); break;     
-            case 3:gotoxy(10,12); printf(" CREDITOS "); break;           
-            case 4:gotoxy(10,13); printf(" SAIR  "); break;           
+		case 1:gotoxy(10,10); printf(" JOGAR "); break;     
+		case 2:gotoxy(10,11); printf(" REGRAS "); break;     
+		case 3:gotoxy(10,12); printf(" CREDITOS "); break;           
+		case 4:gotoxy(10,13); printf(" SAIR  "); break;           
         }    
         tecla=getch();
         if (tecla==224 || tecla==0)
-         	tecla=getch();
+		tecla=getch();
         switch (tecla){
-          	case 72:p--; break;     
-          	case 80:p++; break;            
+		case 72:p--; break;     
+		case 80:p++; break;            
         }
 	if (p==0) p=5;
 	if (p==6) p=1;
@@ -63,10 +63,441 @@ void menu() {
 	gotoxy(1,25);
 }
 //-------------------------------------------------------------------
+void casas() {
+	if (posicao == 0){
+		gotoxy(4,3); printf("Posicao %d terra - DECOLAR", posicao);
+     } 
+     
+	if (posicao == 1){
+		gotoxy(4,3); printf("Posicao %d MERCURIO - MUNDO PEQUENO", posicao);
+		gotoxy(4,5); printf("Mercurio e o menor planeta do nosso sistema solar , apenas um pouco ");
+        	gotoxy(4,6); printf("maior que a Lua da Terra ");	
+	}
+
+	if (posicao == 2){
+		gotoxy(4,3); printf("Posicao %d MERCURIO - SUPERFICIE ASPERA", posicao);
+		gotoxy(4,5); printf("Mercurio e um planeta rochoso, tambem conhecido como um planeta terrestre. ");
+        	gotoxy(4,6); printf("Mercurio tem uma superficie solida e cheia de crateras, ");
+        	gotoxy(4,7); printf("muito parecida com a lua da Terra.");
+	}
+
+	if (posicao == 3){
+		gotoxy(4,3); printf("Posicao %d MERCURIO - QUEM APAGOU A LUA", posicao);
+		gotoxy(4,5); printf("Mercurio nao tem luas e nao ha aneis ao redor dele.");
+	}
+
+	if (posicao == 4){
+		gotoxy(4,3); printf("Posicao %d VENUS  - LONGOS DIAS, ANOS CURTOS\n", posicao);
+		gotoxy(4,5); printf("Venus gira muito lentamente em seu eixo? um dia em Venus dura 243 ");
+        	gotoxy(4,6); printf("dias terrestres. O planeta orbita o Sol mais rapido  que a Terra, no ");
+        	gotoxy(4,7); printf("entanto, entao um ano em Venus leva apenas cerca de 225 dias terrestres, ");
+        	gotoxy(4,8); printf("tornando um dia venusiano mais longo do que seu ano!\n");
+	}
+	
+	if (posicao == 5){
+		gotoxy(4,3); printf("Posicao %d VENUS - ASSISTENCIA GRAVITACIONAL\n", posicao);
+		gotoxy(4,5); printf("usou assitencia gravitacional do planeta x\n");
+	}
+	
+	if (posicao == 6){
+		gotoxy(4,3); printf("Posicao %d VENUS - ESPACO ESPECIAL\n", posicao);
+		gotoxy(4,5); printf("Você inesperadamente acabou sendo atingido por uma asteroide, o ");
+        	gotoxy(4,6); printf("mesmo acabou danificando seu sistema de navegação, avance 1(uma) ");
+        	gotoxy(4,7); printf("casa e fique lá por 3 rodadas para consertar seu sistema");
+	}
+	
+	if (posicao == 7){
+		gotoxy(4,3); printf("Posicao %d VENUS - QUEM PEIDOU\n", posicao);
+		gotoxy(4,5); printf("Venus esta permanentemente envolta em espessas nuvens toxicas de acido ");
+        	gotoxy(4,6); printf("sulfurico que comecam a uma altitude de 45 a 70 quilometros. As nuvens ");
+        	gotoxy(4,7); printf("cheiram a ovos podres!\n");
+	}
+
+	if (posicao == 8){
+		gotoxy(4,3); printf("Posicao %d VENUS - ALGUEM PODE DESLIGAR O AQUECEDOR\n", posicao);
+		gotoxy(4,5); printf("Apesar de Mercurio ser o planeta mais proximo do Sol, e Venus que possui ");
+        	gotoxy(4,6); printf("a atmosfera mais quente. E uma media impressionante de 450 C.\n");
+	}
+	
+	if (posicao == 9){
+		gotoxy(4,3); printf("Posicao %d VENUS - TERRENO DIVERSIFICADO\n", posicao);
+		gotoxy(4,5); printf("Venus tem uma superficie solida coberta de vulcoes, fendas e montanhas  ");
+        	gotoxy(4,6); printf("semelhantes a cupulas, com planicies vulcanicas expansivas e vastos planaltos.\n");
+	}
+	
+	if (posicao == 10){
+		gotoxy(4,3); printf("Posicao %d MARTE - PLANETA ENFERRUJADO\n", posicao);
+		gotoxy(4,5); printf("Marte e conhecido como o Planeta Vermelho porque minerais de ferro no solo ");
+        	gotoxy(4,6); printf("marciano oxidam, ou enferrujam, fazendo com que o solo e a atmosfera ");
+        	gotoxy(4,7); printf("parecam vermelhos.\n");
+	}
+	
+	if (posicao == 11){
+		gotoxy(4,3); printf("Posicao %d - DUAS LUAS\n", posicao);
+		gotoxy(4,5); printf("Marte tem duas luas chamadas Phobos e Deimos.\n");
+	}
+	
+	if (posicao == 12){
+		gotoxy(4,3); printf("Posicao %d MARTE - MUITAS MISSOES\n", posicao);
+		gotoxy(4,5); printf("Varias missoes visitaram este planeta, de flybys e orbitadores a rovers ");
+        	gotoxy(4,6); printf("na superficie. O primeiro verdadeiro sucesso da missao a Marte foi o ");
+        	gotoxy(4,7); printf("mariner 4 em 1965\n");
+	}
+	
+	if (posicao == 13){
+		gotoxy(4,3); printf("Posicao %d MARTE - \n", posicao);
+		gotoxy(4,5); printf("Oh não, você foi capturado por uma raça de policiais alienigena que está procurando ");
+        	gotoxy(4,6); printf("por um relógio esquisito, e ainda por cima estão revistando sua nave, ");
+        	gotoxy(4,7); printf("fique parado por 3 rodadas até terminar a revista");
+	}
+	
+	if (posicao == 14){
+		gotoxy(4,3); printf("Posicao %d MARTE - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Você acabou se encontrando com uma escolta do presidente spook,");
+        	gotoxy(4,6); printf("mantenha sua nave atrás deles para cortar caminho e pular 5 casas");
+	}
+	
+	if (posicao == 15){
+		gotoxy(4,3); printf("Posicao %d MARTE - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Você encontrou um cara com uma armadura de ferro preso em uma ");
+        	gotoxy(4,6); printf("nave no meio do espaço sem combustivel. Como você é uma boa pessoa, você ");
+        	gotoxy(4,7); printf("doou 2 vidas para que ele possa retornar a jornada dele, e com isso você ");
+        	gotoxy(4,8); printf("ganhou um novo mapa espacial que lhe mostra como avançar 3 casas ");
+	}
+	
+	if (posicao == 16){
+		gotoxy(4,3); printf("Posicao %d JUPITER - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Uffa, você encontrou um meteorito rico em hidrazina, um componente ");
+        	gotoxy(4,6); printf("propriamente necessário para a produção de combustível de seu foguete, ");
+        	gotoxy(4,7); printf("encha seu tanque para que assim possa continuar sua jornada");
+	}
+
+	if (posicao == 17){
+		gotoxy(4,3); printf("Posicao %d JUPITER - O MAIOR PLANETA\n", posicao);
+		gotoxy(4,5); printf("Onze Terras poderiam caber atraves do equador de Jupiter. Se a Terra fosse ");
+        	gotoxy(4,6); printf("do tamanho de uma uva, Jupiter teria o tamanho de uma bola de basquete\n");
+	}
+
+	if (posicao == 18){
+		gotoxy(4,3); printf("Posicao %d JUPITER - SEM CHAO\n", posicao);
+		gotoxy(4,5); printf("Nao e possivel pisar na superficie de Jupiter, pois sua superficie e feita ");
+        	gotoxy(4,6); printf("por gases\n");
+	}
+
+	if (posicao == 19){
+		gotoxy(4,3); printf("Posicao %d JUPITER - SUPER TEMPESTADE\n", posicao);
+		gotoxy(4,5); printf("A Grande Mancha Vermelha de Jupiter e uma tempestade gigantesca que tem ");
+        	gotoxy(4,6); printf("cerca de duas vezes o tamanho da Terra e se arrasta ha mais de um seculo.\n");
+	}
+	
+	if (posicao == 20){
+		gotoxy(4,3); printf("Posicao %d SATURNO - MINI SISTEMA SOLAR\n", posicao);
+		gotoxy(4,5); printf("Saturno tem 53 luas conhecidas com mais 29 luas aguardando confirmacao de ");
+        	gotoxy(4,6); printf("sua descoberta e ou seja, um total de 82 luas.\n");
+	}
+	
+	if (posicao == 21){
+		gotoxy(4,3); printf("Posicao %d - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf(" Wow, você foi parado por uma blitz espacial feita por alguns ");
+        	gotoxy(4,6); printf("capangas de um cara chamado Thanos, me parece que eles estão procurando uma ");
+        	gotoxy(4,7); printf("tal de jóias do infinito,ainda bem que você não sabe nada disso, e por isso ");
+        	gotoxy(4,8); printf("você não vai entrar nesta confusão. Avance 1 casa");
+	}
+	
+	if (posicao == 22){
+		gotoxy(4,3); printf("Posicao %d - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Eita, você acabou encontrando uma greve de naves espaciais que estão ");
+        	gotoxy(4,6); printf("reinvindicando os direitos dos aliens poderem realizar suas caças as vacas ");
+        	gotoxy(4,7); printf("no planeta terra, e estão deixando passar apenas algumas naves da policia ");
+        	gotoxy(4,8); printf("e ambulância passar. Fique parado por 4 rodadas");
+	}
+
+	if (posicao == 23){
+		gotoxy(4,3); printf("Posicao %d - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Oh não, você acabou entrando no território dos Sith e acabou ");
+		gotoxy(4,6); printf("se encontrando com o Darth Vader, infelizmente ele viu que você tinha uma ");
+		gotoxy(4,7); printf("pelúcia do R2D2 e acabou ficando magoado, após isso ele lhe inforcou sem as ");
+		gotoxy(4,8); printf("mãos e foi embora, felizmente você perdeu apenas 2 de vida.");
+	}
+	
+	if (posicao == 24){
+		gotoxy(4,3); printf("Posicao %d SATURNO - SENHOR DOS ANEIS\n", posicao);
+		gotoxy(4,5); printf("Saturno tem o sistema de aneis mais espetacular, com sete aneis e ");
+	        gotoxy(4,6); printf("varias lacunas e divisoes entre eles.\n");
+	}
+	
+	if (posicao == 25){
+		gotoxy(4,3); printf("Posicao %d SATURNO - FORCA CENTRIFUGA\n", posicao);
+		gotoxy(4,5); printf("Saturno gira tao rapidamente em seu eixo que o planeta se tornou achatado. ");
+		gotoxy(4,6); printf("A dist?ncia do seu centro ate os polos e de 54.000 km, enquanto a distancia do ");
+		gotoxy(4,7); printf("centro ao equador e de 60.300 km. Ou seja, seu ponto de equador e ");
+		gotoxy(4,8); printf("aproximadamente 6,300 km mais distante do centro do que os polos.\n");
+	}
+	
+	if (posicao == 26){
+		gotoxy(4,3); printf("Posicao %d SATURNO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema solar, ");
+        	gotoxy(4,6); printf("apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 27){
+		gotoxy(4,3); printf("Posicao %d URANUS - REI GELADO\n", posicao);
+		gotoxy(4,5); printf("Urano e um gigante do gelo. A maior parte de sua massa e um fluido ");
+		gotoxy(4,6); printf("quente e denso de materiais gelados ? agua, metano e amonia ? acima de");
+		gotoxy(4,7); printf(" um pequeno nucleo rochoso.\n");
+	}
+	
+	if (posicao == 28){
+		gotoxy(4,3); printf("Posicao %d URANUS - JOIA AZUL\n", posicao);
+		gotoxy(4,5); printf("Ao absorver a porcao vermelha da luz solar, o gas metano da atmosfera ");
+        	gotoxy(4,6); printf("de Urano da ao planeta seus belos tons azul-esverdeados\n");
+	}
+	
+	if (posicao == 29){
+		gotoxy(4,3); printf("Posicao %d URANUS - ESTACOES DO ANO\n", posicao);
+		gotoxy(4,5); printf("Devido a sua rotacao diferente, as esta??es no planeta pode durar cerca ");
+		gotoxy(4,6); printf("de 21 anos, causado enormes variacao de dia e noite em urano.\n");
+	}
+	
+	if (posicao == 30){
+		gotoxy(4,3); printf("Posicao %d URANUS - OUTRO MUNDO ANELADO\n", posicao);
+		gotoxy(4,5); printf("Urano possui 13 aneis formados por particulas que variam de tamanho entre ");
+		gotoxy(4,6); printf("graos de poeira a pequenos pedregulhos.\n");
+	}
+	if (posicao == 31){
+		gotoxy(4,3); printf("Posicao %d URANUS - GRANDE LUAR\n", posicao);
+		gotoxy(4,5); printf("Urano tem 27 luas conhecidas, e elas tem o nome de personagens das obras de ");
+		gotoxy(4,6); printf("William Shakespeare e Alexander Pope.\n");	
+	}
+
+	if (posicao == 32){
+		gotoxy(4,3); printf("Posicao %d URANUS - UM POUCO SOLITARIO\n", posicao);
+		gotoxy(4,5); printf("Voyager 2 e a unica nave espacial a voar por Urano. Nenhuma nave orbitou este ");
+        	gotoxy(4,6); printf("planeta distante para estuda-lo longa e de perto.\n");
+	}
+
+	if (posicao == 33){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - CEU ESTRELADO\n", posicao);
+		gotoxy(4,5); printf("Nosso sistema solar e composto por uma estrela, oito planetas, e incontaveis ");
+        	gotoxy(4,6); printf("corpos menores, como planetas anoes, asteroides e cometas.\n");
+	}
+
+	if (posicao == 34){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - ENCONTRE-ME NO BRA?O DE ORIOR\n", posicao);
+		gotoxy(4,5); printf("Nosso sistema solar orbita o centro da galaxia Via Lactea a cerca de 828.000 km/h. ");
+        	gotoxy(4,6); printf("Estamos em um dos quatro bra?os em espiral da galaxia.\n");
+	}
+	
+	if (posicao == 35){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - O SOL\n", posicao);
+		gotoxy(4,5); printf("Apesar de ser considerado uma estrela de tamanho bem na media, o Sol e tao ");
+    	    gotoxy(4,6); printf("grande que caberiam um milhao de Terras em seu interior.\n");
+	}
+	
+	if (posicao == 36){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Minha nossa nossa nossa, você acaba de encontrar uma base espacial que está ");
+        	gotoxy(4,6); printf("com uma super promoção na alien friday. Encha sua vida e concerte sua nave");
+	}
+	
+	if (posicao == 37){
+		gotoxy(4,3); printf("Posicao %d ESPACO - A GRANDE GALAXIA\n", posicao);
+		gotoxy(4,5); printf("Se tentassemos atravessar a Via Lactea na velocidade da luz, levariamos ");
+        	gotoxy(4,6); printf("100 mil anos para completar o trajeto.\n");
+	}
+
+	if (posicao == 38){
+		gotoxy(4,3); printf("Posicao %d ESPACO - TUDO EM VOLTA DE SAGITARIO\n", posicao);
+		gotoxy(4,5); printf("O centro da Via Lactea esta na direcao da constelacao de Sagitario, ");
+		gotoxy(4,6); printf("onde ha varias nebulosas e aglomerados de estrelas. Essa a ");
+		gotoxy(4,7); printf("parte mais brilhante da galaxia.\n");
+	}
+	
+	if (posicao == 39){
+		gotoxy(4,3); printf("Posicao %d ESPACO - CEU ESTRELADO\n", posicao);
+		gotoxy(4,5); printf("Ha mais estrelas no universo do que graos de areia em todas as ");
+		gotoxy(4,6); printf("praias da Terra, somente em nossa galaxia, existem entre ");
+		gotoxy(4,7); printf("200 a 400 milhoes de estrelas\n");
+	}
+	
+	if (posicao == 40){
+		gotoxy(4,3); printf("Posicao %d ESPACO - SOMOS APENAS GRAOS DE AREIA\n", posicao);
+		gotoxy(4,5); printf("Existem mais de 140 bilhoes de galaxias em todo espaco, sera que em ");
+        	gotoxy(4,6); printf("todas essas nao ha a possibilidade de houver vida?\n");
+	}
+	
+	if (posicao == 41){
+		gotoxy(4,3); printf("Posicao %d ESPACO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema solar, ");
+	        gotoxy(4,6); printf("apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 42){
+		gotoxy(4,3); printf("Posicao %d ESPACO - ROBOS VAO LONGE\n", posicao);
+		gotoxy(4,5); printf("A Voyager 1 e a Voyager 2 da NASA sao a unica nave espacial a deixar ");
+		gotoxy(4,6); printf("nosso sistema solar. Outras tres naves espaciais Pioneer 10, Pioneer 11 ");
+		gotoxy(4,7); printf("e New Horizons acabarao por atingir o espaco interestelar.\n");
+	}
+	
+	if (posicao == 43){
+		gotoxy(4,3); printf("Posicao %d ESPACO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Eita, você encontrou com a tropa dos lanternas verdes, pegue uma ");
+	        gotoxy(4,6); printf("vacuo com eles e chegue mais rápido ao destino. Avance 4 casas");
+	}
+	
+	if (posicao == 44){
+		gotoxy(4,3); printf("Posicao %d ESPACO - NINGUEM PODE TE OUVIR GRITAR\n", posicao);
+		gotoxy(4,5); printf("O espaco e um grande vacuo, ou seja, nao existe ar. Como o som sao ");
+		gotoxy(4,6); printf("ondas de vibracoes do ar, se torna impossivel a existencia de som\n");
+	}
+	
+	if (posicao == 45){
+		gotoxy(4,3); printf("Posicao %d ESPACO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema solar, ");
+		gotoxy(4,6); printf("apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 46){
+		gotoxy(4,3); printf("Posicao %d ESPACO - O BURACO NEGRO MAIS DISTANTE\n", posicao);
+		gotoxy(4,5); printf("O buraco negro mais distante ja descoberto esta em uma gal?xia a ");
+		gotoxy(4,6); printf("cerca de 13,1 bilhoes de anos-luz da Terra. A idade do universo atualmente ");
+		gotoxy(4,7); printf("e estimada em 13,8 bilhoes de anos-luz, entao esse buraco negro ja existia ");
+		gotoxy(4,8); printf("cerca de apenas 690 milhoes de anos apos o Big Bang.\n");	
+	}
+
+	if (posicao == 47){
+		gotoxy(4,3); printf("Posicao %d ESPACO - CAMERA LENTA\n", posicao);
+		gotoxy(4,5); printf("Se voce sobrevoar um buraco negro, sua extrema atra?ao gravitacional ");
+		gotoxy(4,6); printf("desaceleraria cada vez mais o tempo e distorceria o espaco.\n");
+	}
+
+	if (posicao == 48){
+		gotoxy(4,3); printf("Posicao %d ESPACO - NASCE UM BURACO NEGRO\n", posicao);
+		gotoxy(4,5); printf("Os buracos negros maiores, do tamanho de estrelas, geralmente se formam ");
+		gotoxy(4,6); printf("quando uma estrela muito grande colapsa. Quando isso acontece, ocorre ");
+		gotoxy(4,7); printf("uma supernova, que e a explosao de uma estrela.\n");
+	}
+
+	if (posicao == 49){
+		gotoxy(4,3); printf("Posicao %d ESPACO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema solar, ");
+		gotoxy(4,6); printf("apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 50){
+		gotoxy(4,3); printf("Posicao %d ESPACO - ASSISTENCIA GRAVITACIONAL\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - usou assitencia gravitacional do planeta x\n");
+	}
+	
+	if (posicao == 51){
+		gotoxy(4,3); printf("Posicao %d ESPACO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema solar, ");
+		gotoxy(4,6); printf("apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 52){
+		gotoxy(4,3); printf("Posicao %d ESPACO - O ANO GAL?TICO\n", posicao);
+		gotoxy(4,5); printf("O ano galatico e o tempo necessario para que o Sol complete uma ");
+		gotoxy(4,6); printf("volta em torno do centro da nossa galaxia, um tempo de, ");
+        	gotoxy(4,7); printf("aproximadamente, 250 milhoes de anos\n");
+	}
+	
+	if (posicao == 53){
+		gotoxy(4,3); printf("Posicao %d ESPACO - MAIS PLANETAS\n", posicao);
+		gotoxy(4,5); printf("Sabemos de milhares de planetas - chamados exoplanetas - orbitando ");
+		gotoxy(4,6); printf("outras estrelas em nossa galaxia. Voce olha para o ceu noturno, cada ");
+		gotoxy(4,7); printf("estrela que voce ve tem, em media, pelo menos um planeta.\n");
+	}
+	
+	if (posicao == 54){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - CINTURAO DE ASTEROIDES\n", posicao);
+		gotoxy(4,5); printf("Apesar de haver asteroides espalhados por todo o Sistema Solar, a maior ");
+		gotoxy(4,6); printf("parte deles esta localizada entre as orbitas de Marte e Jupiter, regiao ");
+	        gotoxy(4,7); printf("conhecida como Cinturao de Asteroides\n");
+	}
+	
+	if (posicao == 55){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - DEIXANDO O BERCO\n", posicao);
+		gotoxy(4,5); printf("Mais de 300 naves roboticas exploraram destinos alam da orbita da Terra, ");
+		gotoxy(4,6); printf("incluindo 24 astronautas americanos que fizeram a viagem da Terra ata a Lua.\n");
+	}
+	
+	if (posicao == 56){
+		gotoxy(4,3); printf("Posicao %d NETUNO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema solar, apenas ");
+		gotoxy(4,6); printf("um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 57){
+		gotoxy(4,3); printf("Posicao %d NETUNO - OITAVO ANDARILHO\n", posicao);
+		gotoxy(4,5); printf("Netuno orbita nosso Sol, uma estrela, e o oitavo planeta do Sol ");
+		gotoxy(4,6); printf("a uma distancia de cerca de 4,5 bilhoes de quilometros.\n");
+	}
+	
+	if (posicao == 58){
+		gotoxy(4,3); printf("Posicao %d NETUNO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema ");
+		gotoxy(4,6); printf("solar, apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 59){
+		gotoxy(4,3); printf("Posicao %d NETUNO - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema ");
+		gotoxy(4,6); printf("solar, apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 60){
+		gotoxy(4,3); printf("Posicao %d NETUNO - UM DIA CURTO, MAS UM LONGO ANO\n", posicao);
+		gotoxy(4,5); printf("Netuno leva cerca de 16 horas para girar uma vez em seu proprio eixo, ");
+		gotoxy(4,6); printf("completando um dia netuniano. Porem, ele demora cerca de 165 anos ");
+		gotoxy(4,7); printf("terrestres para orbitar o sol.\n");
+	}
+	
+	if (posicao == 61){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - CHANCE\n", posicao);
+		gotoxy(4,5); printf("Segundo calculos estatisticos, temos uma chance mil vezes maior de ");
+		gotoxy(4,6); printf("morrer em consequencia da colisao de um asteroide na Terra do que ");
+		gotoxy(4,7); printf("de ganhar na loteria.\n");
+	}
+	
+	if (posicao == 62){
+		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema ");
+		gotoxy(4,6); printf("solar, apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 63){
+		gotoxy(4,3); printf("Posicao %d TERRA - LIXO ESPACIAL\n", posicao);
+		gotoxy(4,5); printf("Lixo espacial pode ser qualquer objeto feito pelo homem e deixado ");
+		gotoxy(4,6); printf("flutuando no espaco. Os cientistas estimam que haja pelo menos 500.000 ");
+	        gotoxy(4,7); printf("pecas de lixo espacial atualmente em orbita.\n");
+	}
+	
+	if (posicao == 64){
+		gotoxy(4,3); printf("Posicao %d TERRA - A LUA ME TRAIU\n", posicao);
+		gotoxy(4,5); printf("A teoria mais aceita sobre a origem de nossa lua e que a ");
+		gotoxy(4,6); printf("mesma ja fez parte de nosso planeta, mas devido a uma colisao ");
+		gotoxy(4,7); printf("com outro objeto, a fez separar e entrar em orbita\n");
+	}
+	
+	if (posicao == 65){
+		gotoxy(4,3); printf("Posicao %d TERRA - MUNDO PEQUENO\n", posicao);
+		gotoxy(4,5); printf("Posicao %d - Mercurio e o menor planeta do nosso sistema ");
+		gotoxy(4,6); printf("solar, apenas um pouco maior que a Lua da Terra x\n");
+	}
+	
+	if (posicao == 66){
+        	gotoxy(4,3); printf("Parabens, voce voltou para a terra!!");
+    }
+}
+//-------------------------------------------------------------------
 void dado(){
-	gotoxy(8,5); printf("Rolando o Dado \n \n" );
+	gotoxy(6,10); printf("Rolando o Dado \n \n" );
 	srand(time(NULL));
-	gotoxy(8,6); printf ("Valor : %d \n", rand()%6+1);
+	d = rand()%6+1;
+	gotoxy(6,11); printf("Dado: %d", d);
+
+	gotoxy(1,25);
 	system("pause");
 }
 //-------------------------------------------------------------------
@@ -76,13 +507,24 @@ void jogar() {
 	gotoxy(5,5); printf("Digite o nome do jogador 1: ");
 	scanf("%s", &jogador1);
 	
-	dado();
+	system("cls");
+	bordas(1,3,80,25,10);
 	
+	do {
+		casas();
+		dado();
+		posicao = posicao + d;
+		system("cls");
+		bordas(1,3,80,25,10);
+
+	}
+	while(posicao <= 66);
 	gotoxy(1,25);
 	system("pause");
 }
 //-------------------------------------------------------------------
 void regras() {
+     
 	gotoxy(8,4); printf("REGRAS");
 	gotoxy(8,7); printf("Este jogo e um jogo de tabuleiro comum, serao 65 casas nas quais");
 	gotoxy(8,8); printf("21 terao algum evento especial, tais como: ");
@@ -90,10 +532,10 @@ void regras() {
 	gotoxy(8,11); printf("Voltar algumas casas;");
 	gotoxy(8,12); printf("Perder vida;");
 	gotoxy(8,13); printf("Ganhar vida;");
-	gotoxy(8,15); printf("As casa normais apresentarao fatos reais sobre o universo.");
+	gotoxy(8,15); printf("As casa normais apresentarao fatos reais sobre o sistema solar.");
      
-     gotoxy(1,25);
-     system ("pause");
+	gotoxy(1,25);
+	system ("pause");
 }
 //-------------------------------------------------------------------
 void creditos() {
