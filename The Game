@@ -1,0 +1,159 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio.c>
+#include <time.h>
+
+int tecla, p=1;
+bool sair = false;
+//-------------------------------------------------------------------
+void bordas(int ci,int li, int cf, int lf, int cor) {
+    int i;
+    
+    textcolor(cor);
+    textbackground(0);
+    
+    for (i=ci;i<=cf;i++){ //desenha as linhas horizontais
+        gotoxy(i,li);  printf("%c",205);
+        gotoxy(i,lf); printf("%c",205);
+    }
+    for (i=li;i<=lf;i++){ //desenha as linhas verticais
+        gotoxy(ci,i); printf("%c",186);
+        gotoxy(cf,i); printf("%c",186);
+    }
+    gotoxy(ci,li);  printf("%c",201);
+    gotoxy(cf,li);  printf("%c",187);
+    gotoxy(ci,lf); printf("%c",200);
+    gotoxy(cf,lf); printf("%c",188);
+    
+    printf("\n\n");
+    
+}
+//-------------------------------------------------------------------
+void menu() {
+
+      do{
+        textcolor(10); 
+        textbackground(0);
+        gotoxy (10,10); printf(" JOGAR ");
+        gotoxy (10,11); printf(" REGRAS ");
+        gotoxy (10,12); printf(" CREDITOS ");
+        gotoxy (10,13); printf(" SAIR  ");
+        
+        textcolor(2);
+        textbackground(15);
+        
+        switch (p){
+            case 1:gotoxy(10,10); printf(" JOGAR "); break;     
+            case 2:gotoxy(10,11); printf(" REGRAS "); break;     
+            case 3:gotoxy(10,12); printf(" CREDITOS "); break;           
+            case 4:gotoxy(10,13); printf(" SAIR  "); break;           
+        }    
+        tecla=getch();
+        if (tecla==224 || tecla==0)
+          tecla=getch();
+        switch (tecla){
+          case 72:p--; break;     
+          case 80:p++; break;            
+        }
+        if (p==0) p=5;
+        if (p==6) p=1;
+       }
+       while (tecla!=27 && tecla!=13);
+
+       gotoxy(1,25);
+}
+//-------------------------------------------------------------------
+void dado(){
+    gotoxy(8,5); printf("Rolando o Dado \n \n" );
+    srand(time(NULL));
+    gotoxy(8,6); printf ("Valor : %d \n", rand()%6+1);
+    system("pause");
+}
+//-------------------------------------------------------------------
+void jogar() {
+     char jogador1;
+     
+     gotoxy(5,5); printf("Digite o nome do jogador 1: ");
+     scanf("%s", &jogador1);
+     
+     dado();
+     
+     gotoxy(1,25);
+     system("pause");
+}
+//-------------------------------------------------------------------
+void regras() {
+     gotoxy(8,4); printf("REGRAS");
+     gotoxy(8,7); printf("Este jogo e um jogo de tabuleiro comum, serao 65 casas nas quais");
+     gotoxy(8,8); printf("21 terao algum evento especial, tais como: ");
+     gotoxy(8,10); printf("Avancar algumas casas;");
+     gotoxy(8,11); printf("Voltar algumas casas;");
+     gotoxy(8,12); printf("Perder vida;");
+     gotoxy(8,13); printf("Ganhar vida;");
+     gotoxy(8,15); printf("As casa normais apresentarao fatos reais sobre o universo.");
+     
+     gotoxy(1,25);
+     system ("pause");
+}
+//-------------------------------------------------------------------
+void creditos() {
+     
+     gotoxy(8,4); printf("CREDITOS");
+     gotoxy(8,7); printf("Projeto desenvolvido por: ");
+     gotoxy(8,8); printf("Aryana Bandeira");
+     gotoxy(8,9); printf("Lucas Piva");
+     gotoxy(8,10); printf("Jose Ricardo");
+     gotoxy(8,11); printf("Pedro Bravin");
+     gotoxy(8,12); printf("Vitor Abrantes");
+     gotoxy(8,14); printf("Criadora do tabuleiro utilizado: ");
+     gotoxy(8,15); printf("Nadezhda Deineka");
+     
+     gotoxy(1,25);
+     system ("pause");
+}
+//-------------------------------------------------------------------
+int main(){
+    
+    system("mode 80,25");
+    system("cls");
+    bordas(1,3,80,25,10);
+    
+    do {
+        menu();
+        system("cls");
+        bordas(1,3,80,25,10);
+        
+		if (tecla==13) {
+			switch(p) {
+				case 1:   //jogar
+					system ("cls");
+					bordas(1,3,80,25,10);
+					jogar();
+
+				case 2: //regras
+				 	system ("cls");
+				 	bordas(1,3,80,25,10);
+				 	regras(); 
+				break;
+
+				case 3: //creditos
+				 	system ("cls");
+				 	bordas(1,3,80,25,10);
+				 	creditos();
+				break;
+
+				case 4: //sair
+				 	system ("cls");
+				 	bordas(1,3,80,25,10);
+				 	sair = true;
+				 	gotoxy (31,11); printf("Volte sempre!!");
+				 	gotoxy(1,25);
+				 	system ("pause");
+				 	exit(0);
+				break;
+	    	}
+    	}
+    }
+	while (sair == true);  //Fim do laço do menu.
+	return 0;
+}
