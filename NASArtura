@@ -103,15 +103,15 @@ void casas() {
 	if (posicao == 6){
 		gotoxy(4,3); printf("Posicao %d VENUS - ESPACO ESPECIAL\n", posicao);
 		gotoxy(4,5); printf("Voce inesperadamente acabou sendo atingido por uma asteroide, o ");
-        gotoxy(4,6); printf("mesmo acabou danificando seu sistema de navegacao, avance 1(uma) ");
-        gotoxy(4,7); printf("casa e fique la por 3 rodadas para consertar seu sistema");
+        	gotoxy(4,6); printf("mesmo acabou danificando seu sistema de navegacao, avance 1(uma) ");
+        	gotoxy(4,7); printf("casa e fique la por 3 rodadas para consertar seu sistema");
 	}
 	
 	if (posicao == 7){
 		gotoxy(4,3); printf("Posicao %d VENUS - QUEM PEIDOU\n", posicao);
 		gotoxy(4,5); printf("Venus esta permanentemente envolta em espessas nuvens toxicas de acido ");
-        gotoxy(4,6); printf("sulfurico que comecam a uma altitude de 45 a 70 quilometros. As nuvens ");
-        gotoxy(4,7); printf("cheiram a ovos podres!\n");
+        	gotoxy(4,6); printf("sulfurico que comecam a uma altitude de 45 a 70 quilometros. As nuvens ");
+        	gotoxy(4,7); printf("cheiram a ovos podres!\n");
 	}
 
 	if (posicao == 8){
@@ -123,8 +123,8 @@ void casas() {
 	if (posicao == 9){
 		gotoxy(4,3); printf("Posicao %d VENUS - TERRENO DIVERSIFICADO\n", posicao);
 		gotoxy(4,5); printf("Venus tem uma superficie solida coberta de vulcoes, fendas e montanhas  ");
-        gotoxy(4,6); printf("semelhantes a cupulas, com planicies vulcanicas expansivas e vastos");
-        gotoxy(4,7); printf("planaltos.\n");
+        	gotoxy(4,6); printf("semelhantes a cupulas, com planicies vulcanicas expansivas e vastos");
+        	gotoxy(4,7); printf("planaltos.\n");
 	}
 	
 	if (posicao == 10){
@@ -142,37 +142,37 @@ void casas() {
 	if (posicao == 12){
 		gotoxy(4,3); printf("Posicao %d MARTE - MUITAS MISSOES\n", posicao);
 		gotoxy(4,5); printf("Varias missoes visitaram este planeta, de flybys e orbitadores a rovers ");
-        gotoxy(4,6); printf("na superficie. O primeiro verdadeiro sucesso da missao a Marte foi o ");
-        gotoxy(4,7); printf("mariner 4 em 1965\n");
+        	gotoxy(4,6); printf("na superficie. O primeiro verdadeiro sucesso da missao a Marte foi o ");
+        	gotoxy(4,7); printf("mariner 4 em 1965\n");
 	}
 	
 	if (posicao == 13){
 		gotoxy(4,3); printf("Posicao %d - BLITZ ESPACIAL", posicao);
 		gotoxy(4,5); printf("Oh nao, você foi capturado por uma raca de policiais alienigena que esta procurando ");
-        gotoxy(4,6); printf("por um relogio esquisito, e ainda por cima estao revistando sua nave, ");
-        gotoxy(4,7); printf("fique parado por 3 rodadas ate terminar a revista");
+        	gotoxy(4,6); printf("por um relogio esquisito, e ainda por cima estao revistando sua nave, ");
+        	gotoxy(4,7); printf("fique parado por 3 rodadas ate terminar a revista");
 	}
 	
 	if (posicao == 14){
 		gotoxy(4,3); printf("Posicao %d - ESCOLTA PRESIDENCIAL", posicao);
 		gotoxy(4,5); printf("Você acabou se encontrando com uma escolta do presidente spook,");
-        gotoxy(4,6); printf("mantenha sua nave atrás deles e espere uma rodada para jogar.");
+        	gotoxy(4,6); printf("mantenha sua nave atrás deles e espere uma rodada para jogar.");
 	}
 	
 	if (posicao == 15){
 		gotoxy(4,3); printf("Posicao %d MARTE - IRONMAN", posicao);
 		gotoxy(4,5); printf("Voce encontrou um cara com uma armadura de ferro preso em uma ");
-        gotoxy(4,6); printf("nave no meio do espaco sem combustivel. Como você e uma boa pessoa, voce ");
-        gotoxy(4,7); printf("doou 2 vidas para que ele possa retornar a jornada dele, e com isso voce ");
-        gotoxy(4,8); printf("ganhou um novo mapa espacial que lhe mostra como avancar 3 casas ");
-        posicao = 18;
+        	gotoxy(4,6); printf("nave no meio do espaco sem combustivel. Como você e uma boa pessoa, voce ");
+        	gotoxy(4,7); printf("doou 2 vidas para que ele possa retornar a jornada dele, e com isso voce ");
+        	gotoxy(4,8); printf("ganhou um novo mapa espacial que lhe mostra como avancar 3 casas ");
+        	posicao = 18;
 	}
 	
 	if (posicao == 16){
 		gotoxy(4,3); printf("Posicao %d JUPITER - COMBUSTIVEL ESPACIAL", posicao);
 		gotoxy(4,5); printf("Uffa, você encontrou um meteorito rico em hidrazina, um componente ");
-        gotoxy(4,6); printf("propriamente necessário para a produção de combustível de seu foguete, ");
-        gotoxy(4,7); printf("encha seu tanque para que assim possa continuar sua jornada");
+        	gotoxy(4,6); printf("propriamente necessário para a produção de combustível de seu foguete, ");
+        	gotoxy(4,7); printf("encha seu tanque para que assim possa continuar sua jornada");
 	}
 
 	if (posicao == 17){
@@ -184,36 +184,36 @@ void casas() {
 	if (posicao == 18){
 		gotoxy(4,3); printf("Posicao %d JUPITER - SEM CHAO\n", posicao);
 		gotoxy(4,5); printf("Nao e possivel pisar na superficie de Jupiter, pois sua superficie e feita ");
-        gotoxy(4,6); printf("por gases\n");
+        	gotoxy(4,6); printf("por gases\n");
 	}
 
 	if (posicao == 19){
 		gotoxy(4,3); printf("Posicao %d JUPITER - SUPER TEMPESTADE\n", posicao);
 		gotoxy(4,5); printf("A Grande Mancha Vermelha de Jupiter e uma tempestade gigantesca que tem ");
-        gotoxy(4,6); printf("cerca de duas vezes o tamanho da Terra e se arrasta ha mais de um seculo.\n");
+        	gotoxy(4,6); printf("cerca de duas vezes o tamanho da Terra e se arrasta ha mais de um seculo.\n");
 	}
 	
 	if (posicao == 20){
 		gotoxy(4,3); printf("Posicao %d SATURNO - MINI SISTEMA SOLAR\n", posicao);
 		gotoxy(4,5); printf("Saturno tem 53 luas conhecidas com mais 29 luas aguardando confirmacao de ");
-        gotoxy(4,6); printf("sua descoberta e ou seja, um total de 82 luas.\n");
+        	gotoxy(4,6); printf("sua descoberta e ou seja, um total de 82 luas.\n");
 	}
 	
 	if (posicao == 21){
 		gotoxy(4,3); printf("Posicao %d - BLITZ ESPACIAL", posicao);
 		gotoxy(4,5); printf("Wow, voce foi parado por uma blitz espacial feita por alguns ");
-        gotoxy(4,6); printf("capangas de um cara chamado Thanos, me parece que eles estao procurando uma ");
-        gotoxy(4,7); printf("tal de joias do infinito, ainda bem que você nao sabe nada disso, e por isso ");
-        gotoxy(4,8); printf("voce nao vai entrar nesta confusao. Avance 1 casa");
-        posicao = 22;
+        	gotoxy(4,6); printf("capangas de um cara chamado Thanos, me parece que eles estao procurando uma ");
+        	gotoxy(4,7); printf("tal de joias do infinito, ainda bem que você nao sabe nada disso, e por isso ");
+        	gotoxy(4,8); printf("voce nao vai entrar nesta confusao. Avance 1 casa");
+        	posicao = 22;
 	}
 	
 	if (posicao == 22){
 		gotoxy(4,3); printf("Posicao %d - GREVE ESPACIAL", posicao);
 		gotoxy(4,5); printf("Eita, voce acabou encontrando uma greve de naves espaciais que estao ");
-        gotoxy(4,6); printf("reinvindicando os direitos dos aliens poderem realizar suas caças as vacas ");
-        gotoxy(4,7); printf("no planeta terra, e estão deixando passar apenas algumas naves da policia ");
-        gotoxy(4,8); printf("e ambulancia passar. Fique parado por 4 rodadas");
+        	gotoxy(4,6); printf("reinvindicando os direitos dos aliens poderem realizar suas caças as vacas ");
+        	gotoxy(4,7); printf("no planeta terra, e estão deixando passar apenas algumas naves da policia ");
+        	gotoxy(4,8); printf("e ambulancia passar. Fique parado por 4 rodadas");
 	}
 
 	if (posicao == 23){
@@ -227,7 +227,7 @@ void casas() {
 	if (posicao == 24){
 		gotoxy(4,3); printf("Posicao %d SATURNO - SENHOR DOS ANEIS\n", posicao);
 		gotoxy(4,5); printf("Saturno tem o sistema de aneis mais espetacular, com sete aneis e ");
-        gotoxy(4,6); printf("varias lacunas e divisoes entre eles.\n");
+        	gotoxy(4,6); printf("varias lacunas e divisoes entre eles.\n");
 	}
 	
 	if (posicao == 25){
@@ -241,7 +241,7 @@ void casas() {
 	if (posicao == 26){
 		gotoxy(4,3); printf("Posicao %d SATURNO - ASSISTENCIA GRAVITACIONAL", posicao);
 		gotoxy(4,5); printf("Voce usuou a tecnica de assistencia gravitacional que adicionou impulso ");
-        gotoxy(4,6); printf("e aumentou a energia da orbita de sua nave, va para 35.");
+        	gotoxy(4,6); printf("e aumentou a energia da orbita de sua nave, va para 35.");
 		posicao = 35;
 	}
 	
@@ -255,7 +255,7 @@ void casas() {
 	if (posicao == 28){
 		gotoxy(4,3); printf("Posicao %d URANUS - JOIA AZUL\n", posicao);
 		gotoxy(4,5); printf("Ao absorver a porcao vermelha da luz solar, o gas metano da atmosfera ");
-        gotoxy(4,6); printf("de Urano da ao planeta seus belos tons azul-esverdeados\n");
+        	gotoxy(4,6); printf("de Urano da ao planeta seus belos tons azul-esverdeados\n");
 	}
 	
 	if (posicao == 29){
@@ -278,31 +278,31 @@ void casas() {
 	if (posicao == 32){
 		gotoxy(4,3); printf("Posicao %d URANUS - UM POUCO SOLITARIO\n", posicao);
 		gotoxy(4,5); printf("Voyager 2 e a unica nave espacial a voar por Urano. Nenhuma nave orbitou este ");
-        gotoxy(4,6); printf("planeta distante para estuda-lo longa e de perto.\n");
+        	gotoxy(4,6); printf("planeta distante para estuda-lo longa e de perto.\n");
 	}
 
 	if (posicao == 33){
 		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - CEU ESTRELADO\n", posicao);
 		gotoxy(4,5); printf("Nosso sistema solar e composto por uma estrela, oito planetas, e incontaveis ");
-        gotoxy(4,6); printf("corpos menores, como planetas anoes, asteroides e cometas.\n");
+        	gotoxy(4,6); printf("corpos menores, como planetas anoes, asteroides e cometas.\n");
 	}
 
 	if (posicao == 34){
 		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - ENCONTRE-ME NO BRACO DE ORION", posicao);
 		gotoxy(4,5); printf("Nosso sistema solar orbita o centro da galaxia Via Lactea a cerca ");
-        gotoxy(4,6); printf("de 828.000 km/h. Estamos em um dos quatro bracos em espiral da galaxia.\n");
+        	gotoxy(4,6); printf("de 828.000 km/h. Estamos em um dos quatro bracos em espiral da galaxia.\n");
 	}
 	
 	if (posicao == 35){
 		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - O SOL\n", posicao);
 		gotoxy(4,5); printf("Apesar de ser considerado uma estrela de tamanho bem na media, o Sol e tao ");
-        gotoxy(4,6); printf("grande que caberiam um milhao de Terras em seu interior.");
+        	gotoxy(4,6); printf("grande que caberiam um milhao de Terras em seu interior.");
 	}
 	
 	if (posicao == 36){
 		gotoxy(4,3); printf("Posicao %d SISTEMA SOLAR - PROMOCAO ESPACIAL", posicao);
 		gotoxy(4,5); printf("Minha nossa nossa nossa, voce acaba de encontrar uma base espacial que esta ");
-        gotoxy(4,6); printf("com uma super promoção na alien friday. Encha sua vida e concerte sua nave.");
+        	gotoxy(4,6); printf("com uma super promoção na alien friday. Encha sua vida e concerte sua nave.");
 	}
 	
 	if (posicao == 37){
@@ -328,7 +328,7 @@ void casas() {
 	if (posicao == 40){
 		gotoxy(4,3); printf("Posicao %d ESPACO - SOMOS APENAS GRAOS DE AREIA\n", posicao);
 		gotoxy(4,5); printf("Existem mais de 140 bilhoes de galaxias em todo espaco, sera que em ");
-        gotoxy(4,6); printf("todas essas nao ha a possibilidade de houver vida");
+        	gotoxy(4,6); printf("todas essas nao ha a possibilidade de houver vida");
 	}
 	
 	if (posicao == 41){
@@ -358,7 +358,7 @@ void casas() {
 	if (posicao == 45){
 		gotoxy(4,3); printf("Posicao %d ESPACO - CARONA ESPACIAL", posicao);
 		gotoxy(4,5); printf("Voce usou a ajuda de uma outra nave para navegar no espaco, ");
-        gotoxy(4,6); printf("va até a casa 51.");
+        	gotoxy(4,6); printf("va até a casa 51.");
 		posicao = 51;
 	}
 	
@@ -386,7 +386,7 @@ void casas() {
 	if (posicao == 49){
 		gotoxy(4,3); printf("Posicao %d ESPACO - PROBLEMAS TECNICOS", posicao);
 		gotoxy(4,5); printf("Ocorrou um erro no software da sua nave e voce saiu fora do curso, ");
-        gotoxy(4,6); printf("volte para casa 33.");
+        	gotoxy(4,6); printf("volte para casa 33.");
 		posicao = 33;
 	}
 	
@@ -477,7 +477,7 @@ void casas() {
 		gotoxy(4,3); printf("Posicao %d TERRA - LIXO ESPACIAL\n", posicao);
 		gotoxy(4,5); printf("Lixo espacial pode ser qualquer objeto feito pelo homem e deixado ");
 		gotoxy(4,6); printf("flutuando no espaco. Os cientistas estimam que haja pelo menos 500.000 ");
-        gotoxy(4,7); printf("pecas de lixo espacial atualmente em orbita.\n");
+        	gotoxy(4,7); printf("pecas de lixo espacial atualmente em orbita.\n");
 	}
 	
 	if (posicao == 64){
